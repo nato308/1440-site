@@ -86,6 +86,11 @@ p {
   color: var(--muted)
 }
 
+.subtle {
+  opacity: 0.85;
+}
+
+
 /* Stage 3 micro-fix: consistent vertical rhythm inside main */
 .main h2 {
   margin-top: 28px;
@@ -95,13 +100,14 @@ p {
   margin-top: 8px;
 }
 
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--rule);
+.note {
+  background: transparent;
+  border: 1px dashed var(--rule);
   border-radius: 14px;
   padding: 16px;
   margin: 16px 0;
 }
+
 
 ul {
   margin: 10px 0 12px 18px
@@ -109,7 +115,7 @@ ul {
 
 footer {
   border-top: 1px solid var(--rule);
-  margin-top: 30px
+  margin-top: 56px;
 }
 
 .footer {
