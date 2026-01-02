@@ -5,20 +5,29 @@
   --rule: #e2e8f0;
   --panel: #f8fafc;
   --max: 980px;
+
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
 }
 
+/* Reset */
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 html,
 body {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
+/* Base */
 body {
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
   background: var(--bg);
   color: var(--ink);
   line-height: 1.55;
@@ -26,24 +35,29 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
+/* Layout */
 .wrap {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 28px 18px
+  padding: 28px 18px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Header + Navigation */
 header {
   border-bottom: 1px solid var(--rule);
   background: var(--bg);
   position: sticky;
-  top: 0
+  top: 0;
 }
 
 .nav {
@@ -52,67 +66,92 @@ header {
   flex-wrap: wrap;
   font-size: 14px;
   color: var(--muted);
-  padding: 14px 0;
+  padding: 18px 0;
+  align-items: center;
 }
 
-.brand {
+.nav .brand {
   font-weight: 600;
   color: var(--ink);
-  margin-right: 10px
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
 }
 
+.brand-logo {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+/* Main content */
 .main {
-  padding: 26px 0
+  padding: 30px 0;
 }
 
+/* Typography */
 h1 {
-  font-size: 34px;
-  letter-spacing: -0.02em;
-  margin: 0 0 10px
+  font-size: 32px;
+  letter-spacing: -0.015em;
+  margin: 0 0 14px;
 }
 
 h2 {
-  font-size: 18px;
-  margin: 26px 0 10px
+  font-size: 20px;
+  font-weight: 600;
+  margin: 32px 0 12px;
 }
 
 p {
-  margin: 0 0 12px;
-  color: var(--ink)
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  color: var(--ink);
 }
 
 .small {
   font-size: 14px;
-  color: var(--muted)
+  color: var(--muted);
 }
 
 .subtle {
   opacity: 0.85;
 }
 
+/* Reading width (institutional) */
+.main p,
+.main ul {
+  max-width: 72ch;
+}
 
-/* Stage 3 micro-fix: consistent vertical rhythm inside main */
-.main h2 {
-  margin-top: 28px;
+/* Lists */
+ul {
+  margin: 10px 0 12px 18px;
 }
 
 .main ul {
   margin-top: 8px;
 }
 
+/* Panels */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
+}
+
+/* Notes */
 .note {
   background: transparent;
   border: 1px dashed var(--rule);
   border-radius: 14px;
-  padding: 16px;
-  margin: 16px 0;
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
 }
 
-
-ul {
-  margin: 10px 0 12px 18px
-}
-
+/* Footer */
 footer {
   border-top: 1px solid var(--rule);
   margin-top: 56px;
@@ -127,13 +166,13 @@ footer {
   gap: 8px;
 }
 
-
+/* Responsive */
 @media (max-width: 640px) {
   h1 {
-    font-size: 28px
+    font-size: 28px;
   }
 
-  .wrap {
-    padding: 22px 16px
+  .main {
+    padding: 22px 0;
   }
 }
