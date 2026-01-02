@@ -1,14 +1,12 @@
 module.exports = function (eleventyConfig) {
-    // Keep your existing static assets available in the output.
+    // Static assets
     eleventyConfig.addPassthroughCopy("styles.css");
-
-    // During migration, ignore the legacy HTML files to avoid output conflicts.
-
+    eleventyConfig.addPassthroughCopy("favicon.ico");
 
     return {
         dir: {
             input: ".",
-            output: "_site"
-        }
+            output: "_site",
+        },
     };
 };
