@@ -4,7 +4,11 @@
   --muted: #475569;
   --rule: #e2e8f0;
   --panel: #f8fafc;
+
   --max: 980px;
+  /* overall page container */
+  --measure: 72ch;
+  /* institutional reading width */
 
   --space-1: 8px;
   --space-2: 12px;
@@ -62,38 +66,70 @@ header {
 
 .nav {
   display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
   font-size: 14px;
   color: var(--muted);
-  padding: 18px 0;
-  align-items: center;
 }
 
 .nav .brand {
-  font-weight: 600;
-  color: var(--ink);
-  margin-right: 10px;
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .brand-logo {
-  height: 30px;
+  height: 34px;
+  /* institutional: readable without shouting */
   width: auto;
   display: block;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--muted);
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Active page indication (subtle, institutional) */
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-links a[aria-current="page"]:hover {
+  text-decoration: none;
+}
+
+
 /* Main content */
 .main {
   padding: 30px 0;
+  max-width: var(--measure);
+  /* lock reading width for headings + body */
 }
 
-/* Typography */
+/* Typography — Authority Calibration */
 h1 {
-  font-size: 32px;
+  font-size: 34px;
+  font-weight: 600;
   letter-spacing: -0.015em;
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
 
 h2 {
@@ -104,13 +140,14 @@ h2 {
 
 p {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0 0 14px;
   color: var(--ink);
 }
 
 .small {
   font-size: 14px;
+  line-height: 1.55;
   color: var(--muted);
 }
 
@@ -118,19 +155,18 @@ p {
   opacity: 0.85;
 }
 
-/* Reading width (institutional) */
-.main p,
+/* Vertical rhythm — authority spacing */
+.main h2 {
+  margin-top: 36px;
+}
+
 .main ul {
-  max-width: 72ch;
+  margin-top: 8px;
 }
 
 /* Lists */
 ul {
   margin: 10px 0 12px 18px;
-}
-
-.main ul {
-  margin-top: 8px;
 }
 
 /* Panels */
@@ -174,5 +210,22 @@ footer {
 
   .main {
     padding: 22px 0;
+    max-width: 100%;
+    /* allow full width on small screens */
+  }
+
+  /* Header hierarchy — mobile */
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .brand-logo {
+    height: 32px;
+  }
+
+  .nav-links {
+    gap: 12px;
   }
 }

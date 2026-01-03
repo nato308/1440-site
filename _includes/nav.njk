@@ -1,11 +1,12 @@
 <nav class="nav" aria-label="Primary">
   <a class="brand" href="/" aria-label="1440 Advisory Group">
-    <img src="/1440-logo.svg" alt="1440 Advisory Group" class="brand-logo" />
+    <img class="brand-logo" src="/1440-logo.svg" alt="1440 Advisory Group" />
   </a>
 
-  <a href="/">Home</a>
-  <a href="/institutional-summary/">Institutional Summary</a>
-  <a href="/scope-ethics/">Scope &amp; Ethics</a>
-  <a href="/contact/">Contact</a>
+  <div class="nav-links" aria-label="Primary navigation links">
+    <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+    <a href="/institutional-summary/" {% if page.url == "/institutional-summary/" %}aria-current="page"{% endif %}>Institutional Summary</a>
+    <a href="/scope-ethics/" {% if page.url == "/scope-ethics/" %}aria-current="page"{% endif %}>Scope &amp; Ethics</a>
+    <a href="/contact/" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a>
+  </div>
 </nav>
-
